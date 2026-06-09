@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin — Emergencias</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { display: flex; height: 100vh; font-family: sans-serif; }
+    #mapa-admin { flex: 1; }
+    #panel {
+      width: 280px; background: #1a1a2e; color: white;
+      padding: 20px; display: flex; flex-direction: column; gap: 12px;
+    }
+    #panel h2 { font-size: 16px; color: #e94560; }
+    #panel p  { font-size: 12px; color: #aaa; }
+    select, input, textarea, button {
+      width: 100%; padding: 8px; border-radius: 6px;
+      border: 1px solid #333; background: #16213e; color: white;
+      font-size: 13px;
+    }
+    button {
+      background: #e94560; border: none; cursor: pointer;
+      font-weight: bold; margin-top: 4px;
+    }
+    button:hover { background: #c73652; }
+    #btn-borrar { background: #555; }
+    #btn-borrar:hover { background: #333; }
+    #coords { font-size: 11px; color: #aaa; min-height: 16px; }
+    #lista { flex: 1; overflow-y: auto; }
+    .item-emergencia {
+      background: #16213e; border-radius: 6px; padding: 8px;
+      margin-bottom: 8px; font-size: 12px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .item-emergencia button {
+      width: auto; padding: 4px 8px; font-size: 11px;
+      background: #e94560; margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+<div id="mapa-admin"></div>
+
+<div id="panel">
+  <h2>🚨 Panel de Emergencias</h2>
+  <p>Haz clic en el mapa para seleccionar la ubicación</p>
+  <div id="coords">Sin ubicación seleccionada</div>
+
+  <select id="tipo">
+    <option value="fuego">🔥 Fuego</option>
+    <option value="alerta">⚠️ Alerta</option>
+    <option value="inundacion">🌊 Inundación</option>
+    <option value="explosion">💥 Explosión</option>
+    <option value="medico">🏥 Médico</option>
+  </select>
+
+  <input type="text" id="descripcion" placeholder="Descripción breve..."/>
+
+  <button id="btn-añadir">Añadir emergencia</button>
+
+  <hr style="border-color:#333"/>
+  <h2>Emergencias activas</h2>
+  <div id="lista"></div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="map.js"></script>
+<script>
+  let latSeleccionada = null;
+  let lngSeleccionada = null;
+  let marcadorTemp    = null;
+
+  // Clic en el mapa: guarda coordenadas y muestra marcador temporal
+  map.on('click', e => {
+    latSeleccionada = e.latlng.lat;
+    lngSeleccionada = e.latlng.lng;
+
+    document.getElementById('coords').textContent =
+      `Lat: ${latSeleccionada.toFixed(5)}, Lng: ${lngSeleccionada.toFixed(5)}`;
+
+    if (marcadorTemp) marcadorTemp.remove();
+    marcadorTemp = L.marker([latSeleccionada, lngSeleccionada])
+      .addTo(map)
+      .bindPopup('Ubicación seleccionada')
+      .openPopup();
+  });
+
+  // Añadir emergencia
+  document.getElementById('btn-añadir').addEventListener('click', () => {
+    if (!latSeleccionada) {
+      alert('Primero haz clic en el mapa para seleccionar la ubicación');
+      return;
+    }
+
+    const nueva = {
+      tipo:        document.getElementById('tipo').value,
+      lat:         latSeleccionada,
+      lng:         lngSeleccionada,
+      descripcion: document.getElementById('descripcion').value
+    };
+
+    fetch('/api/emergencias', {
+      method:  'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body:    JSON.stringify(nueva)
+    })
+    .then(() => {
+      latSeleccionada = null;
+      lngSeleccionada = null;
+      document.getElementById('coords').textContent = 'Sin ubicación seleccionada';
+      document.getElementById('descripcion').value = '';
+      if (marcadorTemp) { marcadorTemp.remove(); marcadorTemp = null; }
+      cargarEmergencias();
+      actualizarLista();
+    });
+  });
+
+  // Borrar emergencia
+  function borrarEmergencia(id) {
+    fetch(`/api/emergencias/${id}`, { method: 'DELETE' })
+      .then(() => { cargarEmergencias(); actualizarLista(); });
+  }
+
+  // Actualizar lista del panel
+  function actualizarLista() {
+    fetch('/api/emergencias')
+      .then(res => res.json())
+      .then(emergencias => {
+        const lista = document.getElementById('lista');
+        if (emergencias.length === 0) {
+          lista.innerHTML = '<p style="color:#aaa;font-size:12px">Sin emergencias activas</p>';
+          return;
+        }
+        lista.innerHTML = emergencias.map(e => `
+          <div class="item-emergencia">
+            <span>${e.tipo} — ${e.descripcion || 'Sin descripción'}</span>
+            <button onclick="borrarEmergencia(${e.id})">✕</button>
+          </div>
+        `).join('');
+      });
+  }
+
+  actualizarLista();
+</script>
+</body>
+</html>
