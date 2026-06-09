@@ -37,7 +37,23 @@ function rotarGeoJSON(geojson, grados, centro) {
     }))
   };
 }
+// ================================================
+// ÁREA APROXIMADA DE UN POLÍGONO (para ordenar capas)
+// ================================================
+function areaAproximada(feature) {
+  try {
+    const coords = feature.geometry.coordinates[0];
+    if (!coords || coords.length === 0) return 0;
 
+    const lngs = coords.map(c => c[0]);
+    const lats = coords.map(c => c[1]);
+    const w = Math.max(...lngs) - Math.min(...lngs);
+    const h = Math.max(...lats) - Math.min(...lats);
+    return w * h;
+  } catch {
+    return 0;
+  }
+}
 // ================================================
 // COLORES POR NIVEL DE TERRENO
 // Ajusta los hex con los valores exactos de QGIS
