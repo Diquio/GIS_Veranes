@@ -4,5 +4,5 @@ html, body { height: 100%; }
 
 /* Cambia el color de fondo del mapa */
 .leaflet-container {
-  background-color: #a8c8e8; /* azul oceáno — ajústalo a tu gusto */
+  background-color: #a8c8e8; 
 }
