@@ -132,6 +132,698 @@ function cargarUniones() {
     })
     .catch(err => console.warn(err.message));
 }
+// ================================================
+// CARGA DE LA CAPA FESTIVAL
+// ================================================
+function cargarFestival() {
+  fetch('data/festival.geojson')
+    .then(res => {
+      if (!res.ok) throw new Error('No se pudo cargar festival.geojson');
+      return res.json();
+    })
+    .then(data => {
+      const dataRotada = rotarGeoJSON(data, GRADOS_ROTACION, CENTRO_CIUDAD);
+
+      const capa = L.geoJSON(dataRotada, {
+        style: feature => estiloCarreteraConZoom(feature),
+        onEachFeature: (feature, layer) => {
+          const props = feature.properties;
+          if (props && Object.keys(props).length > 0) {
+            const contenido = Object.entries(props)
+              .filter(([k, v]) => v !== null && v !== '')
+              .map(([k, v]) => `<b>${k}:</b> ${v}`)
+              .join('<br>');
+            layer.bindPopup(contenido);
+          }
+        }
+      }).addTo(map);
+
+      map.on('zoomend', () => {
+        capa.setStyle(feature => estiloCarreteraConZoom(feature));
+      });
+    })
+    .catch(err => console.warn(err.message));
+}
+
+// ================================================
+// CARGA DE LA CAPA AEROPUERTO
+// ================================================
+function cargarAeropuerto() {
+  fetch('data/aeropuerto.geojson')
+    .then(res => {
+      if (!res.ok) throw new Error('No se pudo cargar aeropuerto.geojson');
+      return res.json();
+    })
+    .then(data => {
+      const dataRotada = rotarGeoJSON(data, GRADOS_ROTACION, CENTRO_CIUDAD);
+
+      const capa = L.geoJSON(dataRotada, {
+        style: feature => estiloCarreteraConZoom(feature),
+        onEachFeature: (feature, layer) => {
+          const props = feature.properties;
+          if (props && Object.keys(props).length > 0) {
+            const contenido = Object.entries(props)
+              .filter(([k, v]) => v !== null && v !== '')
+              .map(([k, v]) => `<b>${k}:</b> ${v}`)
+              .join('<br>');
+            layer.bindPopup(contenido);
+          }
+        }
+      }).addTo(map);
+
+      map.on('zoomend', () => {
+        capa.setStyle(feature => estiloCarreteraConZoom(feature));
+      });
+    })
+    .catch(err => console.warn(err.message));
+}
+
+// ================================================
+// CARGA DE LA CAPA AREA INDUSTRIAL
+// ================================================
+function cargarAreaIndustrial() {
+  fetch('data/area_industrial.geojson')
+    .then(res => {
+      if (!res.ok) throw new Error('No se pudo cargar area_industrial.geojson');
+      return res.json();
+    })
+    .then(data => {
+      const dataRotada = rotarGeoJSON(data, GRADOS_ROTACION, CENTRO_CIUDAD);
+
+      const capa = L.geoJSON(dataRotada, {
+        style: feature => estiloCarreteraConZoom(feature),
+        onEachFeature: (feature, layer) => {
+          const props = feature.properties;
+          if (props && Object.keys(props).length > 0) {
+            const contenido = Object.entries(props)
+              .filter(([k, v]) => v !== null && v !== '')
+              .map(([k, v]) => `<b>${k}:</b> ${v}`)
+              .join('<br>');
+            layer.bindPopup(contenido);
+          }
+        }
+      }).addTo(map);
+
+      map.on('zoomend', () => {
+        capa.setStyle(feature => estiloCarreteraConZoom(feature));
+      });
+    })
+    .catch(err => console.warn(err.message));
+}
+
+// ================================================
+// CARGA DE LA CAPA AUTOVIA 2 CARRILES
+// ================================================
+function cargarAutovia2Carriles() {
+  fetch('data/autovia_2_carriles.geojson')
+    .then(res => {
+      if (!res.ok) throw new Error('No se pudo cargar autovia_2_carriles.geojson');
+      return res.json();
+    })
+    .then(data => {
+      const dataRotada = rotarGeoJSON(data, GRADOS_ROTACION, CENTRO_CIUDAD);
+
+      const capa = L.geoJSON(dataRotada, {
+        style: feature => estiloCarreteraConZoom(feature),
+        onEachFeature: (feature, layer) => {
+          const props = feature.properties;
+          if (props && Object.keys(props).length > 0) {
+            const contenido = Object.entries(props)
+              .filter(([k, v]) => v !== null && v !== '')
+              .map(([k, v]) => `<b>${k}:</b> ${v}`)
+              .join('<br>');
+            layer.bindPopup(contenido);
+          }
+        }
+      }).addTo(map);
+
+      map.on('zoomend', () => {
+        capa.setStyle(feature => estiloCarreteraConZoom(feature));
+      });
+    })
+    .catch(err => console.warn(err.message));
+}
+
+// ================================================
+// CARGA DE LA CAPA AUTOVIA 3 CARRILES 
+// ================================================
+function cargarAutovia3Carriles() {
+  fetch('data/autovia_3_carriles.geojson')
+    .then(res => {
+      if (!res.ok) throw new Error('No se pudo cargar autovia_3_carriles.geojson');
+      return res.json();
+    })
+    .then(data => {
+      const dataRotada = rotarGeoJSON(data, GRADOS_ROTACION, CENTRO_CIUDAD);
+
+      const capa = L.geoJSON(dataRotada, {
+        style: feature => estiloCarreteraConZoom(feature),
+        onEachFeature: (feature, layer) => {
+          const props = feature.properties;
+          if (props && Object.keys(props).length > 0) {
+            const contenido = Object.entries(props)
+              .filter(([k, v]) => v !== null && v !== '')
+              .map(([k, v]) => `<b>${k}:</b> ${v}`)
+              .join('<br>');
+            layer.bindPopup(contenido);
+          }
+        }
+      }).addTo(map);
+
+      map.on('zoomend', () => {
+        capa.setStyle(feature => estiloCarreteraConZoom(feature));
+      });
+    })
+    .catch(err => console.warn(err.message));
+}
+
+// ================================================
+// CARGA DE LA CAPA BAHIA VIZKAIA GAS
+// ================================================
+function cargarBahiaVizkaiaGas() {
+  fetch('data/bahia_vizkaia_gas.geojson')
+    .then(res => {
+      if (!res.ok) throw new Error('No se pudo cargar bahia_vizkaia_gas.geojson');
+      return res.json();
+    })
+    .then(data => {
+      const dataRotada = rotarGeoJSON(data, GRADOS_ROTACION, CENTRO_CIUDAD);
+
+      const capa = L.geoJSON(dataRotada, {
+        style: feature => estiloCarreteraConZoom(feature),
+        onEachFeature: (feature, layer) => {
+          const props = feature.properties;
+          if (props && Object.keys(props).length > 0) {
+            const contenido = Object.entries(props)
+              .filter(([k, v]) => v !== null && v !== '')
+              .map(([k, v]) => `<b>${k}:</b> ${v}`)
+              .join('<br>');
+            layer.bindPopup(contenido);
+          }
+        }
+      }).addTo(map);
+
+      map.on('zoomend', () => {
+        capa.setStyle(feature => estiloCarreteraConZoom(feature));
+      });
+    })
+    .catch(err => console.warn(err.message));
+}
+
+// ================================================
+// CARGA DE LA CAPA CAMPING
+// ================================================
+function cargarCamping() {
+  fetch('data/camping.geojson')
+    .then(res => {
+      if (!res.ok) throw new Error('No se pudo cargar camping.geojson');
+      return res.json();
+    })
+    .then(data => {
+      const dataRotada = rotarGeoJSON(data, GRADOS_ROTACION, CENTRO_CIUDAD);
+
+      const capa = L.geoJSON(dataRotada, {
+        style: feature => estiloCarreteraConZoom(feature),
+        onEachFeature: (feature, layer) => {
+          const props = feature.properties;
+          if (props && Object.keys(props).length > 0) {
+            const contenido = Object.entries(props)
+              .filter(([k, v]) => v !== null && v !== '')
+              .map(([k, v]) => `<b>${k}:</b> ${v}`)
+              .join('<br>');
+            layer.bindPopup(contenido);
+          }
+        }
+      }).addTo(map);
+
+      map.on('zoomend', () => {
+        capa.setStyle(feature => estiloCarreteraConZoom(feature));
+      });
+    })
+    .catch(err => console.warn(err.message));
+}
+
+// ================================================
+// CARGA DE LA CAPA CENTRO CIUDAD 
+// ================================================
+function cargarCentroCiudad() {
+  fetch('data/centro_ciudad.geojson')
+    .then(res => {
+      if (!res.ok) throw new Error('No se pudo cargar centro_ciudad.geojson');
+      return res.json();
+    })
+    .then(data => {
+      const dataRotada = rotarGeoJSON(data, GRADOS_ROTACION, CENTRO_CIUDAD);
+
+      const capa = L.geoJSON(dataRotada, {
+        style: feature => estiloCarreteraConZoom(feature),
+        onEachFeature: (feature, layer) => {
+          const props = feature.properties;
+          if (props && Object.keys(props).length > 0) {
+            const contenido = Object.entries(props)
+              .filter(([k, v]) => v !== null && v !== '')
+              .map(([k, v]) => `<b>${k}:</b> ${v}`)
+              .join('<br>');
+            layer.bindPopup(contenido);
+          }
+        }
+      }).addTo(map);
+
+      map.on('zoomend', () => {
+        capa.setStyle(feature => estiloCarreteraConZoom(feature));
+      });
+    })
+    .catch(err => console.warn(err.message));
+}
+
+// ================================================
+// CARGA DE LA CAPA CENTRO CIUDAD 2
+// ================================================
+function cargarCentroCiudad2() {
+  fetch('data/centro_ciudad2.geojson')
+    .then(res => {
+      if (!res.ok) throw new Error('No se pudo cargar centro_ciudad2.geojson');
+      return res.json();
+    })
+    .then(data => {
+      const dataRotada = rotarGeoJSON(data, GRADOS_ROTACION, CENTRO_CIUDAD);
+
+      const capa = L.geoJSON(dataRotada, {
+        style: feature => estiloCarreteraConZoom(feature),
+        onEachFeature: (feature, layer) => {
+          const props = feature.properties;
+          if (props && Object.keys(props).length > 0) {
+            const contenido = Object.entries(props)
+              .filter(([k, v]) => v !== null && v !== '')
+              .map(([k, v]) => `<b>${k}:</b> ${v}`)
+              .join('<br>');
+            layer.bindPopup(contenido);
+          }
+        }
+      }).addTo(map);
+
+      map.on('zoomend', () => {
+        capa.setStyle(feature => estiloCarreteraConZoom(feature));
+      });
+    })
+    .catch(err => console.warn(err.message));
+}
+
+// ================================================
+// CARGA DE LA CAPA CENTRO COMERCIAL
+// ================================================
+function cargarCentroComercial() {
+  fetch('data/centro_comercial.geojson')
+    .then(res => {
+      if (!res.ok) throw new Error('No se pudo cargar centro_comercial.geojson');
+      return res.json();
+    })
+    .then(data => {
+      const dataRotada = rotarGeoJSON(data, GRADOS_ROTACION, CENTRO_CIUDAD);
+
+      const capa = L.geoJSON(dataRotada, {
+        style: feature => estiloCarreteraConZoom(feature),
+        onEachFeature: (feature, layer) => {
+          const props = feature.properties;
+          if (props && Object.keys(props).length > 0) {
+            const contenido = Object.entries(props)
+              .filter(([k, v]) => v !== null && v !== '')
+              .map(([k, v]) => `<b>${k}:</b> ${v}`)
+              .join('<br>');
+            layer.bindPopup(contenido);
+          }
+        }
+      }).addTo(map);
+
+      map.on('zoomend', () => {
+        capa.setStyle(feature => estiloCarreteraConZoom(feature));
+      });
+    })
+    .catch(err => console.warn(err.message));
+}
+
+// ================================================
+// CARGA DE LA CAPA COASTLINE
+// ================================================
+function cargarCoastline() {
+  fetch('data/coastline.geojson')
+    .then(res => {
+      if (!res.ok) throw new Error('No se pudo cargar coastline.geojson');
+      return res.json();
+    })
+    .then(data => {
+      const dataRotada = rotarGeoJSON(data, GRADOS_ROTACION, CENTRO_CIUDAD);
+
+      const capa = L.geoJSON(dataRotada, {
+        style: feature => estiloCarreteraConZoom(feature),
+        onEachFeature: (feature, layer) => {
+          const props = feature.properties;
+          if (props && Object.keys(props).length > 0) {
+            const contenido = Object.entries(props)
+              .filter(([k, v]) => v !== null && v !== '')
+              .map(([k, v]) => `<b>${k}:</b> ${v}`)
+              .join('<br>');
+            layer.bindPopup(contenido);
+          }
+        }
+      }).addTo(map);
+
+      map.on('zoomend', () => {
+        capa.setStyle(feature => estiloCarreteraConZoom(feature));
+      });
+    })
+    .catch(err => console.warn(err.message));
+}
+
+// ================================================
+// CARGA DE LA CAPA EDIFICIO ALTO
+// ================================================
+function cargarEdificioAlto() {
+  fetch('data/edificio_alto.geojson')
+    .then(res => {
+      if (!res.ok) throw new Error('No se pudo cargar edificio_alto.geojson');
+      return res.json();
+    })
+    .then(data => {
+      const dataRotada = rotarGeoJSON(data, GRADOS_ROTACION, CENTRO_CIUDAD);
+
+      const capa = L.geoJSON(dataRotada, {
+        style: feature => estiloCarreteraConZoom(feature),
+        onEachFeature: (feature, layer) => {
+          const props = feature.properties;
+          if (props && Object.keys(props).length > 0) {
+            const contenido = Object.entries(props)
+              .filter(([k, v]) => v !== null && v !== '')
+              .map(([k, v]) => `<b>${k}:</b> ${v}`)
+              .join('<br>');
+            layer.bindPopup(contenido);
+          }
+        }
+      }).addTo(map);
+
+      map.on('zoomend', () => {
+        capa.setStyle(feature => estiloCarreteraConZoom(feature));
+      });
+    })
+    .catch(err => console.warn(err.message));
+}
+
+// ================================================
+// CARGA DE LA CAPA ESTACION DE TREN 
+// ================================================
+function cargarEstacionTren() {
+  fetch('data/estacion_tren.geojson')
+    .then(res => {
+      if (!res.ok) throw new Error('No se pudo cargar estacion_tren.geojson');
+      return res.json();
+    })
+    .then(data => {
+      const dataRotada = rotarGeoJSON(data, GRADOS_ROTACION, CENTRO_CIUDAD);
+
+      const capa = L.geoJSON(dataRotada, {
+        style: feature => estiloCarreteraConZoom(feature),
+        onEachFeature: (feature, layer) => {
+          const props = feature.properties;
+          if (props && Object.keys(props).length > 0) {
+            const contenido = Object.entries(props)
+              .filter(([k, v]) => v !== null && v !== '')
+              .map(([k, v]) => `<b>${k}:</b> ${v}`)
+              .join('<br>');
+            layer.bindPopup(contenido);
+          }
+        }
+      }).addTo(map);
+
+      map.on('zoomend', () => {
+        capa.setStyle(feature => estiloCarreteraConZoom(feature));
+      });
+    })
+    .catch(err => console.warn(err.message));
+}
+
+// ================================================
+// CARGA DE LA CAPA INDUSTRIA
+// ================================================
+function cargarIndustria() {
+  fetch('data/industria.geojson')
+    .then(res => {
+      if (!res.ok) throw new Error('No se pudo cargar industria.geojson');
+      return res.json();
+    })
+    .then(data => {
+      const dataRotada = rotarGeoJSON(data, GRADOS_ROTACION, CENTRO_CIUDAD);
+
+      const capa = L.geoJSON(dataRotada, {
+        style: feature => estiloCarreteraConZoom(feature),
+        onEachFeature: (feature, layer) => {
+          const props = feature.properties;
+          if (props && Object.keys(props).length > 0) {
+            const contenido = Object.entries(props)
+              .filter(([k, v]) => v !== null && v !== '')
+              .map(([k, v]) => `<b>${k}:</b> ${v}`)
+              .join('<br>');
+            layer.bindPopup(contenido);
+          }
+        }
+      }).addTo(map);
+
+      map.on('zoomend', () => {
+        capa.setStyle(feature => estiloCarreteraConZoom(feature));
+      });
+    })
+    .catch(err => console.warn(err.message));
+}
+
+// ================================================
+// CARGA DE LA CAPA PLANTA PETRO
+// ================================================
+function cargarPlantaPetro() {
+  fetch('data/planta_petro.geojson')
+    .then(res => {
+      if (!res.ok) throw new Error('No se pudo cargar planta_petro.geojson');
+      return res.json();
+    })
+    .then(data => {
+      const dataRotada = rotarGeoJSON(data, GRADOS_ROTACION, CENTRO_CIUDAD);
+
+      const capa = L.geoJSON(dataRotada, {
+        style: feature => estiloCarreteraConZoom(feature),
+        onEachFeature: (feature, layer) => {
+          const props = feature.properties;
+          if (props && Object.keys(props).length > 0) {
+            const contenido = Object.entries(props)
+              .filter(([k, v]) => v !== null && v !== '')
+              .map(([k, v]) => `<b>${k}:</b> ${v}`)
+              .join('<br>');
+            layer.bindPopup(contenido);
+          }
+        }
+      }).addTo(map);
+
+      map.on('zoomend', () => {
+        capa.setStyle(feature => estiloCarreteraConZoom(feature));
+      });
+    })
+    .catch(err => console.warn(err.message));
+}
+
+// ================================================
+// CARGA DE LA CAPA PORT EVERGLADES 
+// ================================================
+function cargarPortEverglades() {
+  fetch('data/port_everglades.geojson')
+    .then(res => {
+      if (!res.ok) throw new Error('No se pudo cargar port_everglades.geojson');
+      return res.json();
+    })
+    .then(data => {
+      const dataRotada = rotarGeoJSON(data, GRADOS_ROTACION, CENTRO_CIUDAD);
+
+      const capa = L.geoJSON(dataRotada, {
+        style: feature => estiloCarreteraConZoom(feature),
+        onEachFeature: (feature, layer) => {
+          const props = feature.properties;
+          if (props && Object.keys(props).length > 0) {
+            const contenido = Object.entries(props)
+              .filter(([k, v]) => v !== null && v !== '')
+              .map(([k, v]) => `<b>${k}:</b> ${v}`)
+              .join('<br>');
+            layer.bindPopup(contenido);
+          }
+        }
+      }).addTo(map);
+
+      map.on('zoomend', () => {
+        capa.setStyle(feature => estiloCarreteraConZoom(feature));
+      });
+    })
+    .catch(err => console.warn(err.message));
+}
+
+// ================================================
+// CARGA DE LA CAPA PUNTA SAN GARCIA
+// ================================================
+function cargarPuntaSanGarcia() {
+  fetch('data/punta_san_garcia.geojson')
+    .then(res => {
+      if (!res.ok) throw new Error('No se pudo cargar punta_san_garcia.geojson');
+      return res.json();
+    })
+    .then(data => {
+      const dataRotada = rotarGeoJSON(data, GRADOS_ROTACION, CENTRO_CIUDAD);
+
+      const capa = L.geoJSON(dataRotada, {
+        style: feature => estiloCarreteraConZoom(feature),
+        onEachFeature: (feature, layer) => {
+          const props = feature.properties;
+          if (props && Object.keys(props).length > 0) {
+            const contenido = Object.entries(props)
+              .filter(([k, v]) => v !== null && v !== '')
+              .map(([k, v]) => `<b>${k}:</b> ${v}`)
+              .join('<br>');
+            layer.bindPopup(contenido);
+          }
+        }
+      }).addTo(map);
+
+      map.on('zoomend', () => {
+        capa.setStyle(feature => estiloCarreteraConZoom(feature));
+      });
+    })
+    .catch(err => console.warn(err.message));
+}
+
+// ================================================
+// CARGA DE LA CAPA REFINERIA
+// ================================================
+function cargarRefineria() {
+  fetch('data/refineria.geojson')
+    .then(res => {
+      if (!res.ok) throw new Error('No se pudo cargar refineria.geojson');
+      return res.json();
+    })
+    .then(data => {
+      const dataRotada = rotarGeoJSON(data, GRADOS_ROTACION, CENTRO_CIUDAD);
+
+      const capa = L.geoJSON(dataRotada, {
+        style: feature => estiloCarreteraConZoom(feature),
+        onEachFeature: (feature, layer) => {
+          const props = feature.properties;
+          if (props && Object.keys(props).length > 0) {
+            const contenido = Object.entries(props)
+              .filter(([k, v]) => v !== null && v !== '')
+              .map(([k, v]) => `<b>${k}:</b> ${v}`)
+              .join('<br>');
+            layer.bindPopup(contenido);
+          }
+        }
+      }).addTo(map);
+
+      map.on('zoomend', () => {
+        capa.setStyle(feature => estiloCarreteraConZoom(feature));
+      });
+    })
+    .catch(err => console.warn(err.message));
+}
+
+// ================================================
+// CARGA DE LA CAPA TUNEL ACCESO
+// ================================================
+function cargarTunelAcceso() {
+  fetch('data/tunel_acceso.geojson')
+    .then(res => {
+      if (!res.ok) throw new Error('No se pudo cargar tunel_acceso.geojson');
+      return res.json();
+    })
+    .then(data => {
+      const dataRotada = rotarGeoJSON(data, GRADOS_ROTACION, CENTRO_CIUDAD);
+
+      const capa = L.geoJSON(dataRotada, {
+        style: feature => estiloCarreteraConZoom(feature),
+        onEachFeature: (feature, layer) => {
+          const props = feature.properties;
+          if (props && Object.keys(props).length > 0) {
+            const contenido = Object.entries(props)
+              .filter(([k, v]) => v !== null && v !== '')
+              .map(([k, v]) => `<b>${k}:</b> ${v}`)
+              .join('<br>');
+            layer.bindPopup(contenido);
+          }
+        }
+      }).addTo(map);
+
+      map.on('zoomend', () => {
+        capa.setStyle(feature => estiloCarreteraConZoom(feature));
+      });
+    })
+    .catch(err => console.warn(err.message));
+}
+
+// ================================================
+// CARGA DE LA CAPA URBAS
+// ================================================
+function cargarUrba() {
+  fetch('data/urba.geojson')
+    .then(res => {
+      if (!res.ok) throw new Error('No se pudo cargar urba.geojson');
+      return res.json();
+    })
+    .then(data => {
+      const dataRotada = rotarGeoJSON(data, GRADOS_ROTACION, CENTRO_CIUDAD);
+
+      const capa = L.geoJSON(dataRotada, {
+        style: feature => estiloCarreteraConZoom(feature),
+        onEachFeature: (feature, layer) => {
+          const props = feature.properties;
+          if (props && Object.keys(props).length > 0) {
+            const contenido = Object.entries(props)
+              .filter(([k, v]) => v !== null && v !== '')
+              .map(([k, v]) => `<b>${k}:</b> ${v}`)
+              .join('<br>');
+            layer.bindPopup(contenido);
+          }
+        }
+      }).addTo(map);
+
+      map.on('zoomend', () => {
+        capa.setStyle(feature => estiloCarreteraConZoom(feature));
+      });
+    })
+    .catch(err => console.warn(err.message));
+}
+
+// ================================================
+// CARGA DE LA CAPA ZONA RESIDENCIAL
+// ================================================
+function cargarZonaResidencial() {
+  fetch('data/zona_residencial.geojson')
+    .then(res => {
+      if (!res.ok) throw new Error('No se pudo cargar zona_residencial.geojson');
+      return res.json();
+    })
+    .then(data => {
+      const dataRotada = rotarGeoJSON(data, GRADOS_ROTACION, CENTRO_CIUDAD);
+
+      const capa = L.geoJSON(dataRotada, {
+        style: feature => estiloCarreteraConZoom(feature),
+        onEachFeature: (feature, layer) => {
+          const props = feature.properties;
+          if (props && Object.keys(props).length > 0) {
+            const contenido = Object.entries(props)
+              .filter(([k, v]) => v !== null && v !== '')
+              .map(([k, v]) => `<b>${k}:</b> ${v}`)
+              .join('<br>');
+            layer.bindPopup(contenido);
+          }
+        }
+      }).addTo(map);
+
+      map.on('zoomend', () => {
+        capa.setStyle(feature => estiloCarreteraConZoom(feature));
+      });
+    })
+    .catch(err => console.warn(err.message));
+}
 
 // ================================================
 // ICONOS DE EMERGENCIA
@@ -207,4 +899,25 @@ fetch('/data/delimitaciones.geojson')
     capa.addTo(map);
     map.fitBounds(capa.getBounds());
     cargarUniones();
+    cargarEstacionTren();
+    cargarEdificioAlto();
+    cargarCentroCiudad();
+    cargarCentroCiudad2();
+    cargarCentroComercial();
+    cargarBahiaVizkaiaGas();
+    cargarAeropuerto();
+    cargarAreaIndustrial();
+    cargarAutovia2Carriles();
+    cargarAutovia3Carriles();
+    cargarCamping();
+    cargarCoastline();
+    cargarIndustria();
+    cargarPlantaPetro();
+    cargarPortEverglades();
+    cargarPuntaSanGarcia();
+    cargarRefineria();
+    cargarTunelAcceso();
+    cargarUrba();
+    cargarZonaResidencial();
+    cargarFestival();
   });
