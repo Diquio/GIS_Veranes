@@ -1,0 +1,14 @@
+{
+"type": "FeatureCollection",
+"name": "autovia_2_carriles",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "fid": 1, "tipo": "principal", "nombre": "A-4.5" }, "geometry": { "type": "LineString", "coordinates": [ [ 1.412883873475756, -0.223630758040855 ], [ 1.421977569614537, -0.224388996416552 ] ] } },
+{ "type": "Feature", "properties": { "fid": 2, "tipo": "principal", "nombre": "A-4" }, "geometry": { "type": "LineString", "coordinates": [ [ 1.412845140786163, -0.223825149342349 ], [ 1.421958486294157, -0.224575948448487 ] ] } },
+{ "type": "Feature", "properties": { "fid": 3, "tipo": "principal", "nombre": "A-2" }, "geometry": { "type": "LineString", "coordinates": [ [ 1.417736183954413, -0.220045823010081 ], [ 1.417129852034329, -0.227558820312993 ] ] } },
+{ "type": "Feature", "properties": { "fid": 4, "tipo": null, "nombre": null }, "geometry": { "type": "LineString", "coordinates": [ [ 1.417452198344047, -0.223568154538609 ], [ 1.418664756985082, -0.223994535281426 ], [ 1.42027349443502, -0.224144250815462 ], [ 1.420906315065691, -0.224289092008975 ] ] } },
+{ "type": "Feature", "properties": { "fid": 5, "tipo": null, "nombre": null }, "geometry": { "type": "LineString", "coordinates": [ [ 1.417451721261038, -0.223572828339408 ], [ 1.416160998927042, -0.223760749879305 ], [ 1.414703281020787, -0.223648236592354 ], [ 1.414237464404542, -0.223740592225809 ] ] } },
+{ "type": "Feature", "properties": { "fid": 6, "tipo": null, "nombre": null }, "geometry": { "type": "LineString", "coordinates": [ [ 1.417357444820277, -0.224635212369666 ], [ 1.417503763894055, -0.224635980540566 ], [ 1.418634031421255, -0.224429972848807 ], [ 1.420317133593353, -0.224563216346058 ], [ 1.420871779093887, -0.224488634194276 ] ] } },
+{ "type": "Feature", "properties": { "fid": 7, "tipo": null, "nombre": null }, "geometry": { "type": "LineString", "coordinates": [ [ 1.417362118621076, -0.224635689452676 ], [ 1.417208360277739, -0.224615271912564 ], [ 1.416141385926015, -0.224221104240883 ], [ 1.414695551903417, -0.224099776444897 ], [ 1.414329598137304, -0.223948341851568 ] ] } }
+]
+}

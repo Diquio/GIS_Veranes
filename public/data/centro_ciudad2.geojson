@@ -1,0 +1,28 @@
+{
+"type": "FeatureCollection",
+"name": "centro_ciudad2",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "fid": 1, "tipo": null, "nombre": null }, "geometry": { "type": "LineString", "coordinates": [ [ 1.368496257335515, -0.190128052544668 ], [ 1.368543734708528, -0.189535808662446 ], [ 1.368130406818535, -0.189500711367393 ], [ 1.368083683463733, -0.190099130175175 ], [ 1.368496072348246, -0.190130485517438 ] ] } },
+{ "type": "Feature", "properties": { "fid": 2, "tipo": null, "nombre": null }, "geometry": { "type": "LineString", "coordinates": [ [ 1.368083590970098, -0.19010034666156 ], [ 1.366728055162674, -0.190002174697715 ] ] } },
+{ "type": "Feature", "properties": { "fid": 3, "tipo": null, "nombre": null }, "geometry": { "type": "LineString", "coordinates": [ [ 1.366515224508704, -0.189518608197109 ], [ 1.366763757705783, -0.189532610953108 ], [ 1.366607628449911, -0.191586039970977 ] ] } },
+{ "type": "Feature", "properties": { "fid": 4, "tipo": null, "nombre": null }, "geometry": { "type": "LineString", "coordinates": [ [ 1.367042665307717, -0.188342533451753 ], [ 1.369684133786843, -0.188553161518042 ] ] } },
+{ "type": "Feature", "properties": { "fid": 5, "tipo": null, "nombre": null }, "geometry": { "type": "LineString", "coordinates": [ [ 1.367007574002939, -0.188868425544611 ], [ 1.369644731498335, -0.18907138471805 ] ] } },
+{ "type": "Feature", "properties": { "fid": 6, "tipo": null, "nombre": null }, "geometry": { "type": "LineString", "coordinates": [ [ 1.36698144859048, -0.189163754255259 ], [ 1.369620285040436, -0.189360723490408 ] ] } },
+{ "type": "Feature", "properties": { "fid": 7, "tipo": null, "nombre": null }, "geometry": { "type": "LineString", "coordinates": [ [ 1.369620924417027, -0.189448865471938 ], [ 1.369702873777632, -0.188371058534833 ] ] } },
+{ "type": "Feature", "properties": { "fid": 8, "tipo": null, "nombre": null }, "geometry": { "type": "LineString", "coordinates": [ [ 1.369418400950814, -0.188346982051474 ], [ 1.369409392851104, -0.188529824983763 ] ] } },
+{ "type": "Feature", "properties": { "fid": 9, "tipo": null, "nombre": null }, "geometry": { "type": "LineString", "coordinates": [ [ 1.36824567993742, -0.188226004554059 ], [ 1.36823220400497, -0.188435425199548 ] ] } },
+{ "type": "Feature", "properties": { "fid": 10, "tipo": null, "nombre": null }, "geometry": { "type": "LineString", "coordinates": [ [ 1.367053708267396, -0.188132927818994 ], [ 1.366981600651278, -0.189163765816964 ] ] } },
+{ "type": "Feature", "properties": { "fid": 11, "tipo": null, "nombre": null }, "geometry": { "type": "LineString", "coordinates": [ [ 1.367461136624155, -0.188374351262192 ], [ 1.367265633218035, -0.190977817113348 ] ] } },
+{ "type": "Feature", "properties": { "fid": 12, "tipo": null, "nombre": null }, "geometry": { "type": "LineString", "coordinates": [ [ 1.367993032724432, -0.188427028338169 ], [ 1.367884087202958, -0.190085177705421 ] ] } },
+{ "type": "Feature", "properties": { "fid": 13, "tipo": null, "nombre": null }, "geometry": { "type": "LineString", "coordinates": [ [ 1.368116532773286, -0.189683184325142 ], [ 1.36823322297261, -0.189693280200487 ], [ 1.368218239003741, -0.189890350994855 ], [ 1.368102672797167, -0.189881564099531 ] ] } },
+{ "type": "Feature", "properties": { "fid": 14, "tipo": null, "nombre": null }, "geometry": { "type": "LineString", "coordinates": [ [ 1.368868148903417, -0.188487448829806 ], [ 1.368719917823635, -0.190372632752006 ] ] } },
+{ "type": "Feature", "properties": { "fid": 15, "tipo": null, "nombre": null }, "geometry": { "type": "LineString", "coordinates": [ [ 1.368720102810905, -0.190370199779236 ], [ 1.367321328455432, -0.190261399126222 ] ] } },
+{ "type": "Feature", "properties": { "fid": 16, "tipo": null, "nombre": null }, "geometry": { "type": "LineString", "coordinates": [ [ 1.369088403009289, -0.18932395323107 ], [ 1.368947185288058, -0.19130999896046 ] ] } },
+{ "type": "Feature", "properties": { "fid": 17, "tipo": null, "nombre": null }, "geometry": { "type": "LineString", "coordinates": [ [ 1.368947000300788, -0.19131243193323 ], [ 1.369630665649154, -0.191364413356097 ], [ 1.36970283882271, -0.190447367609082 ], [ 1.369014122541534, -0.190397449184445 ] ] } },
+{ "type": "Feature", "properties": { "fid": 18, "tipo": null, "nombre": null }, "geometry": { "type": "LineString", "coordinates": [ [ 1.368961799282387, -0.191117794111631 ], [ 1.366991831287777, -0.190958222531859 ] ] } },
+{ "type": "Feature", "properties": { "fid": 19, "tipo": null, "nombre": null }, "geometry": { "type": "LineString", "coordinates": [ [ 1.366989213327737, -0.190960470517359 ], [ 1.367060248439413, -0.190026208973684 ] ] } },
+{ "type": "Feature", "properties": { "fid": 20, "tipo": "via", "nombre": "V-6" }, "geometry": { "type": "LineString", "coordinates": [ [ 1.36698828129104, -0.18776441510048 ], [ 1.366695261455376, -0.191618243968141 ] ] } },
+{ "type": "Feature", "properties": { "fid": 21, "tipo": "rio", "nombre": null }, "geometry": { "type": "LineString", "coordinates": [ [ 1.36704593225433, -0.189020884100075 ], [ 1.369579896023995, -0.189213550062385 ] ] } }
+]
+}
